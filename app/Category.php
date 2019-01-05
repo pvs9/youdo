@@ -34,10 +34,19 @@ class Category extends Model
 	}
 
 	/**
-	 * Get the resumes for the category.
+	 * Get resumes for the category.
 	 */
 	public function resumes()
 	{
 		return $this->belongsToMany('App\Resume');
+	}
+
+
+	/**
+	 * Get users for the category.
+	 */
+	public function users()
+	{
+		return $this->belongsToMany('App\User')->withPivot('price');
 	}
 }

@@ -25,7 +25,15 @@ class Region extends Model
 	];
 
 	/**
-	 * Get the werbsites for the region.
+	 * Get districts for the region.
+	 */
+	public function districts()
+	{
+		return $this->hasMany('App\District');
+	}
+
+	/**
+	 * Get werbsites for the region.
 	 */
 	public function websites()
 	{

@@ -26,7 +26,7 @@ class Resume extends Model
 
 
 	/**
-	 * Get the categories for the resume.
+	 * Get categories for the resume.
 	 */
 	public function categories()
 	{
@@ -50,7 +50,7 @@ class Resume extends Model
 	}
 
 	/**
-	 * Get the reviews for the resume.
+	 * Get reviews for the resume.
 	 */
 	public function reviews()
 	{

@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Website extends Model
+class District extends Model
 {
 	/**
 	 * The attributes that are mass assignable.
@@ -12,7 +12,7 @@ class Website extends Model
 	 * @var array
 	 */
 	protected $fillable = [
-		'address',
+		'name',
 	];
 
 	/**
@@ -25,7 +25,7 @@ class Website extends Model
 	];
 
 	/**
-	 * Get the region that owns the website.
+	 * Get the region for the district.
 	 */
 	public function region()
 	{
@@ -33,18 +33,10 @@ class Website extends Model
 	}
 
 	/**
-	 * Get the the speciality that owns the website.
+	 * Get users for the district.
 	 */
-	public function speciality()
+	public function users()
 	{
-		return $this->belongsTo('App\Speciality');
-	}
-
-	/**
-	 * Get resumes for the website.
-	 */
-	public function resumes()
-	{
-		return $this->hasMany('App\Resume');
+		return $this->belongsToMany('App\User');
 	}
 }

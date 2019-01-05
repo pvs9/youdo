@@ -18,7 +18,7 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $fillable = [
-        'last_name', 'first_name', 'phone', 'email', 'password',
+        'last_name', 'first_name', 'phone', 'email', 'password', 'experience', 'guarantees', 'type',
     ];
 
     /**
@@ -45,5 +45,21 @@ class User extends Authenticatable implements MustVerifyEmail
 	public function resumes()
 	{
 		return $this->hasMany('App\Resume');
+	}
+
+	/**
+	 * Get the categories for the user.
+	 */
+	public function categories()
+	{
+		return $this->belongsToMany('App\Category')->withPivot('price');
+	}
+
+	/**
+	 * Get districts for the user.
+	 */
+	public function districts()
+	{
+		return $this->belongsToMany('App\District');
 	}
 }
