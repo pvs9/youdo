@@ -12,7 +12,7 @@ class Resume extends Model
 	 * @var array
 	 */
 	protected $fillable = [
-		'price',
+		'experience', 'is_urgent', 'price', 'with_loaders', 'rating', 'is_paid',
 	];
 
 	/**
@@ -26,11 +26,11 @@ class Resume extends Model
 
 
 	/**
-	 * Get the category for the resume.
+	 * Get the categories for the resume.
 	 */
-	public function category()
+	public function categories()
 	{
-		return $this->belongsTo('App\Category');
+		return $this->belongsToMany('App\Category');
 	}
 
 	/**
@@ -39,6 +39,14 @@ class Resume extends Model
 	public function user()
 	{
 		return $this->belongsTo('App\User');
+	}
+
+	/**
+	 * Get the website for the resume.
+	 */
+	public function website()
+	{
+		return $this->belongsTo('App\Website');
 	}
 
 	/**

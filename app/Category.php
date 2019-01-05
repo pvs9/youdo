@@ -32,4 +32,12 @@ class Category extends Model
 	{
 		return $this->belongsTo('App\Speciality');
 	}
+
+	/**
+	 * Get the resumes for the category.
+	 */
+	public function resumes()
+	{
+		return $this->belongsToMany('App\Resume');
+	}
 }
