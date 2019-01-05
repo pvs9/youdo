@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Resume extends Model
+class Image extends Model
 {
 	/**
 	 * The attributes that are mass assignable.
@@ -12,7 +12,7 @@ class Resume extends Model
 	 * @var array
 	 */
 	protected $fillable = [
-		'experience', 'is_urgent', 'price', 'with_loaders', 'rating', 'is_paid', 'is_active',
+		'path',
 	];
 
 	/**
@@ -26,15 +26,7 @@ class Resume extends Model
 
 
 	/**
-	 * Get categories for the resume.
-	 */
-	public function categories()
-	{
-		return $this->belongsToMany('App\Category');
-	}
-
-	/**
-	 * Get the user for the resume.
+	 * Get the user for the image.
 	 */
 	public function user()
 	{
@@ -42,18 +34,10 @@ class Resume extends Model
 	}
 
 	/**
-	 * Get the website for the resume.
+	 * Get the website for the image.
 	 */
 	public function website()
 	{
 		return $this->belongsTo('App\Website');
-	}
-
-	/**
-	 * Get reviews for the resume.
-	 */
-	public function reviews()
-	{
-		return $this->hasMany('App\Review');
 	}
 }
