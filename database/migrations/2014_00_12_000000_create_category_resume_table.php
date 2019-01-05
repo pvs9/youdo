@@ -20,6 +20,7 @@ class CreateCategoryResumeTable extends Migration
 			$table->increments('id');
 			$table->integer('category_id');
 			$table->integer('resume_id');
+			$table->integer('price');
 		});
 	}
 

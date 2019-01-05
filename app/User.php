@@ -18,7 +18,7 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $fillable = [
-        'last_name', 'first_name', 'phone', 'email', 'password', 'experience',
+        'last_name', 'first_name', 'phone', 'email', 'password', 'role', 'experience',
     ];
 
     /**
@@ -52,7 +52,7 @@ class User extends Authenticatable implements MustVerifyEmail
 	 */
 	public function categories()
 	{
-		return $this->belongsToMany('App\Category')->withPivot('price');
+		return $this->belongsToMany('App\Category');
 	}
 
 	/**

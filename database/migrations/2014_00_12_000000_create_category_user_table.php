@@ -20,7 +20,6 @@ class CreateCategoryUserTable extends Migration
 			$table->increments('id');
 			$table->integer('category_id');
 			$table->integer('user_id');
-			$table->integer('price');
 		});
 	}
 

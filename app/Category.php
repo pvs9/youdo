@@ -38,15 +38,15 @@ class Category extends Model
 	 */
 	public function resumes()
 	{
-		return $this->belongsToMany('App\Resume');
+		return $this->belongsToMany('App\Resume')->withPivot('price');
 	}
 
 
 	/**
-	 * Get users for the category.
+	 * Get resumes for the category.
 	 */
 	public function users()
 	{
-		return $this->belongsToMany('App\User')->withPivot('price');
+		return $this->belongsToMany('App\User');
 	}
 }

@@ -12,7 +12,7 @@ class Resume extends Model
 	 * @var array
 	 */
 	protected $fillable = [
-		'experience', 'is_urgent', 'price', 'with_loaders', 'rating', 'is_paid', 'is_active',
+		'experience', 'is_urgent', 'with_loaders', 'rating', 'is_paid', 'is_active',
 	];
 
 	/**
@@ -30,7 +30,7 @@ class Resume extends Model
 	 */
 	public function categories()
 	{
-		return $this->belongsToMany('App\Category');
+		return $this->belongsToMany('App\Category')->withPivot('price');
 	}
 
 	/**

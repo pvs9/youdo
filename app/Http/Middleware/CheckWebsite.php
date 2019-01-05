@@ -16,7 +16,7 @@ class CheckWebsite
      */
     public function handle($request, Closure $next)
     {
-    	$website = Website::where('address', $_SERVER['SERVER_NAME'])->first();
+    	$website = Website::where('address', $_SERVER['SERVER_NAME'])->with('region','speciality')->first();
     	if ($website) {
 			$request->session()->put('website', $website);
 			return $next($request);

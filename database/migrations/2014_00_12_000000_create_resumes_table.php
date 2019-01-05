@@ -20,7 +20,6 @@ class CreateResumesTable extends Migration
 			$table->increments('id');
 			$table->string('experience');
 			$table->boolean('is_urgent');
-			$table->integer('price');
 			$table->boolean('with_loaders');
 			$table->integer('user_id');
 			$table->integer('website_id');
