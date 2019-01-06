@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\GetResume;
 use App\Http\Requests\StoreResume;
 use App\Mail\ResumeStored;
 use App\Resume;
@@ -18,6 +19,18 @@ class ResumeController extends Controller
 	public function __construct()
 	{
 		$this->middleware('auth');
+	}
+
+	public function get(GetResume $request)
+	{
+		$data = $request->validated();
+		$resumes = Resume::whereHas('website', function ($query) use ($request){
+			$query->where('id', $request->session()->get('website')->id);
+		})
+			->where('is_paid', true)->where('is_active', true)
+			->with('user', 'reviews', 'categories')
+			->byExperience($data['filters']['experience'])
+			->paginate(10);
 	}
 
 	public function store(StoreResume $request)

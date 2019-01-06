@@ -56,4 +56,12 @@ class Resume extends Model
 	{
 		return $this->hasMany('App\Review');
 	}
+
+	public function scopeByExperience($query, $experience)
+	{
+		if($experience)
+			return $query->where('experience', 'like', '%'.$experience.'%');
+		else
+			return $query;
+	}
 }
