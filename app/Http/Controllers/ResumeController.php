@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Resume;
 use App\Http\Requests\GetResume;
 use App\Http\Requests\StoreResume;
 use App\Mail\ResumeStored;
-use App\Resume;
 use Illuminate\Support\Facades\Mail;
 
 

@@ -13,7 +13,7 @@ class ResumeStored extends Mailable implements ShouldQueue
     use Queueable, SerializesModels;
 
 	/**
-	 * The order instance.
+	 * The resume instance.
 	 *
 	 * @var Resume
 	 */

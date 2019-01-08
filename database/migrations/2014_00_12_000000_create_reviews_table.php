@@ -18,10 +18,13 @@ class CreateReviewsTable extends Migration
 			$table->charset = 'utf8mb4';
 			$table->collation = 'utf8mb4_unicode_ci';
 			$table->increments('id');
-			$table->string('title');
-			$table->text('description');
+			$table->string('name');
+			$table->string('email');
+			$table->text('text');
 			$table->integer('rating');
 			$table->integer('resume_id');
+			$table->boolean('is_verified');
+			$table->boolean('is_active');
 			$table->timestamps();
 		});
 	}
